@@ -1,0 +1,20 @@
+{% extends 'students/base.html' %}
+
+{% block content %}
+<div class="row">
+	<div class="col-lg-12">
+		<h3>Your Account Details</h3>
+		Name: <b>{{ record.name }}</b>
+		Mobile Number: <b>{{ record.mobile_number }}</b>
+		<div class="info">
+		<h4>Your Classes</h4>
+		<ul>
+		{% for studentclasses in record.studentclasses_set.all %}
+		    <li>{{ studentclasses.class_name }}</li>
+		{% endfor %}
+		</ul>			
+		</div>
+
+	</div>
+</div>
+{% endblock %}

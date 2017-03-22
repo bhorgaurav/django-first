@@ -1,0 +1,15 @@
+<div class="row hidden" id="verifyForm">
+	<div class="col-lg-12">
+		<h3>Verify</h3>
+		<form action="{{ action }}" method="POST">
+		{% csrf_token %}
+			<div class="form-group">
+				<label for="input_pin">Pin</label>
+				<input type="text" class="form-control" id="input_pin" name="input_pin" placeholder="000000" pattern="^[0-9]{1,6}$" required>
+				<small class="form-text text-muted">A 6 digit number was sent to your mobile number. Please enter it here.</small>
+				<div class="help-block with-errors"></div>
+			</div>
+			<button type="submit" class="btn btn-primary">Submit</button>
+		</form>
+	</div>
+</div>

@@ -1,0 +1,20 @@
+{% extends 'students/base.html' %}
+
+{% block content %}
+	<div class="row" id="getInfoForm">
+		<div class="col-lg-12">
+			<h3>Get Classes Info</h3>
+			<form action="{% url 'students:verify' %}" method="POST" data-toggle="validator" role="form">
+			{% csrf_token %}
+				<div class="form-group">
+					<label for="mobile_number">Mobile Number</label>
+					<input type="tel" class="form-control" pattern="^[0-9]{10}$" name="mobile_number" id="mobile_number" placeholder="9999999999" required>
+					<small class="form-text text-muted">Format is 9999999999. 10 digit number. No special characters.</small>
+					<div class="help-block with-errors"></div>
+				</div>
+				<button type="submit" class="btn btn-primary">Submit</button>
+			</form>
+		</div>
+	</div>
+	{% include 'students/verify.html' %}
+{% endblock %}
